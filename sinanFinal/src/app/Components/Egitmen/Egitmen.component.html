@@ -1,0 +1,71 @@
+<br>
+<div>
+  <button (click)="egitmenekle()" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+    <mat-icon>add</mat-icon>
+  </button>
+  
+</div>
+
+<br>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="egitmenId">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Id</th>
+    <td mat-cell *matCellDef="let egitmen"> {{egitmen.egitmenId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="egitmenAd">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Adı </th>
+    <td mat-cell *matCellDef="let egitmen"> {{egitmen.egitmenAd}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="egitmenSoyad">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Soyadı </th>
+    <td mat-cell *matCellDef="let egitmen"> {{egitmen.egitmenSoyad}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="egitmenBrans">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Branş </th>
+    <td mat-cell *matCellDef="let egitmen"> {{egitmen.egitmenBrans}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="egitmenOzgecmis">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Özgeçmiş </th>
+    <td mat-cell *matCellDef="let egitmen"> {{egitmen.egitmenOzgecmis}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="egitmenFotograf">
+    <th mat-header-cell *matHeaderCellDef> Eğitmen Fotoğraf </th>
+    <td mat-cell *matCellDef="let egitmen"> <img src="{{egitmen.egitmenFotograf}}" alt="" width="50px"></td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Duzenle">
+    <th mat-header-cell *matHeaderCellDef> Duzenle </th>
+    <td mat-cell *matCellDef="let egitmen"> <button (click)="egitmenduzenle(egitmen)" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+      <mat-icon>edit</mat-icon>
+    </button> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Sil">
+    <th mat-header-cell *matHeaderCellDef> Sil </th>
+    <td mat-cell *matCellDef="let egitmen"> <button (click)="egitmensil(egitmen.egitmenId)" mat-mini-fab  aria-label="Example icon button with a home icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+   </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

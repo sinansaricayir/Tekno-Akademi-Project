@@ -1,0 +1,71 @@
+<br>
+<div>
+  <button (click)="kursekle()" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+    <mat-icon>add</mat-icon>
+  </button>
+  
+</div>
+
+<br>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="kursId">
+    <th mat-header-cell *matHeaderCellDef> Kurs Id </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="kursAd">
+    <th mat-header-cell *matHeaderCellDef> Kurs Adı </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursAd}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="kursFiyat">
+    <th mat-header-cell *matHeaderCellDef> Kurs Fiyat </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursFiyat}} ₺ </td>
+  </ng-container>
+
+  <ng-container matColumnDef="kursIcerik">
+    <th mat-header-cell *matHeaderCellDef> Kurs İçerik </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursIcerik}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="kursKategoriId">
+    <th mat-header-cell *matHeaderCellDef> Kurs Kategori </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursKategoriId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="kursEgitmenId">
+    <th mat-header-cell *matHeaderCellDef> Kurs Eğitmen </th>
+    <td mat-cell *matCellDef="let kurs"> {{kurs.kursEgitmenId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Duzenle">
+    <th mat-header-cell *matHeaderCellDef> Duzenle </th>
+    <td mat-cell *matCellDef="let kurs"> <button (click)="kursduzenle(kurs)" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+      <mat-icon>edit</mat-icon>
+    </button> </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Sil">
+    <th mat-header-cell *matHeaderCellDef> Sil </th>
+    <td mat-cell *matCellDef="let kurs"> <button (click)="kurssil(kurs.kursid)" mat-mini-fab  aria-label="Example icon button with a home icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+   </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

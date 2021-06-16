@@ -1,0 +1,18 @@
+<br><br>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let egitmen of egitmenler">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{egitmen.egitmenAd}} {{egitmen.egitmenSoyad}} </mat-card-title>
+          <mat-card-subtitle>{{egitmen.egitmenBrans}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{egitmen.egitmenFotograf}}" alt="Photo of a Shiba Inu">
+        
+        <mat-card-actions>
+          <button mat-button>{{egitmen.egitmenOzgecmis}} </button>
+         
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    </div>

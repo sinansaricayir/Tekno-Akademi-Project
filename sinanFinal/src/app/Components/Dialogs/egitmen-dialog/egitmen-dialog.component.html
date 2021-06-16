@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{dialogBaslik}}</h2>
+<mat-dialog-content>
+<form [formGroup]="form">  
+  <mat-form-field appearance="fill">
+    <mat-label>Eğitmen Ad</mat-label>
+    <input matInput formControlName="egitmenAd" name="egitmenAd" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Eğitmen Soyad</mat-label>
+    <input matInput formControlName="egitmenSoyad" name="egitmenSoyad" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Eğitmen Branş</mat-label>
+    <input matInput formControlName="egitmenBrans" name="egitmenBrans" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Eğitmen Özgeçmiş</mat-label>
+    <input matInput formControlName="egitmenOzgecmis" name="egitmenOzgecmis" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fotoğraf</mat-label>
+    <input matInput formControlName="egitmenFotograf" name="egitmenFotograf" type="text" required>
+  </mat-form-field>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button color="primary" mat-button mat-dialog-close (click)="dialogRef.close(form.value)">Ekle</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button color="warn"mat-button [mat-dialog-close]="true">Vazgeç</button>
+</mat-dialog-actions>
